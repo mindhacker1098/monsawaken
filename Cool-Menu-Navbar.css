@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.cool-menu {
+  display: absolute;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url('./pock.mp4') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+nav {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(1, 221, 233);
+}
+
+nav ul li {
+  display: inline-flex;
+  margin: 5px 15px -5px 15px;
+}
+
+nav ul li a {
+  color: rgb(255, 0, 0);
+  text-decoration: none;
+  font-size: 30px;  
+  font-weight: 900;
+  display: block;
+  padding: 0px 20px;
+  overflow: hidden;
+ 
+}
+
+ul li .menu .f-word {
+  display: inline-block;
+  position: relative;
+  transition: transform .3s;
+}
+
+ul li .menu .s-word {
+  display: inline-block;
+  position: relative;
+  transition: transform .3s;
+}
+
+ul li .menu .s-word {
+  margin-left: -6px;
+}
+
+ul li .menu .f-word::before {
+  position: absolute;
+  content: attr(data-hover);
+}
+
+ul li .menu .s-word::before {
+  position: absolute;
+  content: attr(data-hover);
+}
+
+ul li .menu .f-word::before {
+  color: #001eff;
+  top: 110%;
+}
+
+ul li .menu .s-word::before {
+  color: #001eff;
+  bottom: 110%;
+}
+
+a:hover .f-word {
+  transform: translate3d(0, -110%, 0);
+}
+
+a:hover .s-word {
+  transform: translate3d(0, 110%, 0);
+}
+
+
+
+/* Style the video: 100% width and height to cover the entire window */
+/* #myVideo { */
+  /* position: fixed; */
+  /* right: 0; */
+  /* bottom: 0; */
+  /* min-width: 100%;
+  min-height: 100%;
+} */
+
+
+#myVideo{
+  width: 78vw;
+  height: 78vh;
+  object-fit: cover;
+  /* position: fixed; */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}

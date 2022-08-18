@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <style>
+      .container{
+        margin: 20px;
+        padding: 20px;
+        text-align: inherit;
+      }
+      form {
+        margin: 20px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .heading {
+        margin:10px;
+        padding: 5px;
+      }
+      .btn-hero {
+        padding: 20px 25px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #5700f4;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #bcc0d1;
+      }
+
+      .btn-hero:hover {
+        background-color: rgb(69, 127, 221);
+      }
+
+      .btn-hero:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form name="myform">
+        <div class="heading">
+          Enter your atk
+          <input type="text" name="atk" />
+          <!-- <br><br> -->
+        </div>
+        <div class="heading">
+          Enter move power
+          <input type="text" name="move" />
+        </div>
+        <div class="heading">
+          Boost
+          <select name="boost">
+            <option value="1">0</option>
+            <option value="1.5">+1</option>
+            <option value="2">+2</option>
+            <option value="2.5">+3</option>
+            <option value="3">+4</option>
+            <option value="3.5">+5</option>
+            <option value="4">+6</option>
+          </select>
+        </div>
+        <div class="heading">
+          Enter opponent defence
+          <input type="text" name="def" />
+        </div>
+        <div class="heading">
+          Weather
+          <select name="weather">
+            <option value="1">Normal</option>
+            <option value="1.5">Positive</option>
+            <option value="0.5">Negative</option>
+            
+          </select>
+        </div>
+        <div class="heading">
+          Effectiveness
+          <select name="effect">
+            <option value="1">1X</option>
+            <option value="2">2X</option>
+            <option value="4">4X</option>
+            <option value="0.5">-2X</option>
+            <option value="0.25">-4X</option>
+            
+          </select>
+        </div>
+        <div class="heading">
+          Ability
+          <br />
+          <br />
+          <input type="radio" name="ability" id="damn2" value="1" />
+          <label for="damn2">no stab</label>
+          <br>
+          <input type="radio" name="ability" id="damn" value="1.5" />
+          <label for="damn">stab</label>
+          <br />
+
+          <input type="radio" name="ability" id="damn1" value="2" />
+          <label for="damn1">adpability</label>
+          
+          
+        </div>
+
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+            id="spn"
+            name="slide"
+          />
+          <p>Lvl: <span id="show"></span></p>
+        </div>
+
+        <input type="button" value="Calculate" class="btn-hero" onclick="valid()" />
+
+        <h1 id="answer"></h1>
+
+      </form>
+    </div>
+  </body>
+  <script>
+    var slider = document.getElementById("spn");
+    var output = document.getElementById("show");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+      output.innerHTML = this.value;
+    };
+    function valid(){
+
+    
+var atk = document.myform.atk.value;
+var move = document.myform.move.value;
+var weather = document.myform.weather.value;
+var effect = document.myform.effect.value;
+var ability = document.myform.ability.value;
+var defence = document.myform.def.value;
+var slide = document.myform.slide.value;
+var boost = document.myform.boost.value;
+
+var Atk = parseFloat(atk);
+var Move = parseFloat(move);
+var Weather = parseFloat(weather);
+var Effect = parseFloat(effect);
+var Ability = parseFloat(ability);
+var Defence = parseFloat(defence);
+var Slide = parseFloat(slide);
+var Boost = parseFloat(boost);
+
+var ans=(((Slide*2)/5)+2)*(((((Atk*Move)/Defence)/5)+2)*Ability*Boost*Effect*Weather);
+
+var output = document.getElementById("answer");
+
+output.innerHTML = "damage is "+ans;
+
+
+}
+  </script>
+</html>
